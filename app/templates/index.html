@@ -1,0 +1,63 @@
+{% extends "bootstrap/base.html" %}
+
+{% block navbar %}
+{% include "header.html" %}
+{% endblock %}
+
+{% block metas %}
+{{super()}}
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+<div class="row">
+  <div class="col-md-9">
+    <div class="row post">
+      <h4 class="inline">
+      Test
+      </h4>
+      <i class="glyphicon glyphicon-comment"></i>
+      <br>
+      <br>
+    </div><!-- end post / row -->
+    </div>
+    <div class="col-md-3">
+      <br /><br />
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{super()}}
+<script>
+  $(document).ready(function(){
+    console.log("JQUERY ACTIVATE!");
+  });
+
+  function vote(id,score){
+    console.log("id: " + id + " score: " + score);
+    }
+  /**
+  // see what I did here? :p
+  var jason = { '_id':id, 'score':score };
+  console.log("Applying vote to: " + id + ": " + score)
+  $.ajax('vote',{
+    type: 'POST',
+    data: JSON.stringify(jason),
+    contentType: 'application/json',
+    success: function(data, textStatus, jqXHR){
+      console.log(data);
+    },
+    error: function(jqXHR, textStatus, errorThrown){
+      console.log(errorThrown);
+    }
+  }); **/ 
+</script>
+{% endblock %}
+
